@@ -22,8 +22,14 @@ export function useRegister() {
     return response.data;
   };
 
+  const adminDeleteCustomer = async (id: number) => {
+    const response = await apiClient.delete(`/students/${id}`);
+    return response.data;
+  };
+
   return {
     register,
     adminUpdateProfile,
+    adminDeleteCustomer,
   };
 }
