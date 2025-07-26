@@ -11,9 +11,9 @@
           <video-camera-outlined />
           <span>Course Catgory</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="3" @click="handleMenuClick('course')">
           <upload-outlined />
-          <span>Supplier</span>
+          <span>Course</span>
         </a-menu-item>
         <a-sub-menu key="sub2">
           <template #title>

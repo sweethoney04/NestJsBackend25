@@ -1,4 +1,5 @@
 import apiClient from "../../../common/configuration/axios.config";
+import type { IFormStateCategory } from "../interface/category.interface";
 
 export function CourseCategoryComposible() {
   const fetchAll = async () => {
@@ -12,6 +13,23 @@ export function CourseCategoryComposible() {
     return response.data;
   };
 
+  const createItem = async (value: IFormStateCategory) => {
+    const response = await apiClient.post(`/course/create-category`, {
+      name: value.name,
+    });
+    return response.data;
+  };
+
+  const updateItem = async (value: IFormStateCategory) => {
+    const response = await apiClient.put(
+      `/course/update-category/${value.id}`,
+      {
+        name: value.name,
+      }
+    );
+    return response.data;
+  };
+
   const deleteItem = async (id: number) => {
     const response = await apiClient.delete(`/course/delete-category/${id}`);
     return response.data;
@@ -19,6 +37,8 @@ export function CourseCategoryComposible() {
 
   return {
     fetchAll,
+    updateItem,
     deleteItem,
+    createItem,
   };
 }
