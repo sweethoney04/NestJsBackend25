@@ -49,9 +49,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
-import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useAuth } from './composible/auth.ts'
 
@@ -67,6 +66,8 @@ const formState = reactive<FormState>({
   email: '',
   password: '',
 });
+
+const error = ref<string | null>(null);
 
 const onFinish = async (values: any) => {
   await login(values.email, values.password)

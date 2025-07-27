@@ -19,6 +19,7 @@ const formState = reactive<FormState>({
 });
 
 const isLoading = ref(false);
+const error = ref<string | null>(null);
 
 const onFinish = async (values: any) => {
   try {

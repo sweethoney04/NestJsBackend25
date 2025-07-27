@@ -12,6 +12,8 @@ export interface ICourseEntity {
   status: string;
   created_at: string;
   updated_at: string;
+  teacher_id: string;
+  category_id: string;
   teacher: {
     id: number;
     specialization: string;
